@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameBehavior : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class GameBehavior : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text foodText;
     public TMP_Text progressText;
+
+    public bool isHome = false;
+    public Button winButton;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,14 @@ public class GameBehavior : MonoBehaviour
         
     }
 
+    private void LateUpdate()
+    {
+        if(CheckWin())
+        {
+            winButton.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
     public int Food
     {
         get { return _foodCollected; }
@@ -33,11 +46,11 @@ public class GameBehavior : MonoBehaviour
         {
             _foodCollected = value;
             Debug.Log($"Food: {_foodCollected}");
-            foodText.text = $"Food: {Food} of {maxFood}";
+            foodText.text = $"Food: {Food} / {maxFood}";
 
             if(_foodCollected >= maxFood)
             {
-                progressText.text = "You've found all the food!";
+                progressText.text = "Return home!";
             }
             else
             {
@@ -54,5 +67,18 @@ public class GameBehavior : MonoBehaviour
             _playerHP = value;
             Debug.Log($"PlayerHP: {_playerHP}");
         }
+    }
+
+    public bool CheckWin()
+    {
+        if(Food >= maxFood && isHome) return true;
+        
+        return false;
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 }
