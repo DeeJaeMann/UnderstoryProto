@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpiderWebBehavior : MonoBehaviour
 {
-    public float slowModifier = .5f;
+    public float slowModifier = .2f;
     private PlayerBehavior player;
     private float playerBaseSpeed;
     // Start is called before the first frame update
@@ -19,7 +19,8 @@ public class SpiderWebBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            player.speed *= slowModifier;
+            if (player.speed == playerBaseSpeed) player.speed *= slowModifier;
+            //Debug.Log($"Player Speed is now {player.speed}");
         }
     }
 
@@ -28,6 +29,7 @@ public class SpiderWebBehavior : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             player.speed = playerBaseSpeed;
+            //Debug.Log($"Player speed reset to {player.speed}");
         }
     }
 }
