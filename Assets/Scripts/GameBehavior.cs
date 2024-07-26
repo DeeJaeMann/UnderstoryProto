@@ -66,6 +66,7 @@ public class GameBehavior : MonoBehaviour
         {
             _playerHP = value;
             Debug.Log($"PlayerHP: {_playerHP}");
+            healthText.text = $"Health: {PlayerHP}";
         }
     }
 
