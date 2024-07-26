@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7384227101043569861}
   - component: {fileID: 2867241490858608210}
   - component: {fileID: 7346732364436763598}
+  - component: {fileID: 7556589485325416901}
   m_Layer: 0
   m_Name: AntBody
   m_TagString: Untagged
@@ -148,6 +149,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &7556589485325416901
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6435532331745600473}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 8
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6789452441446587945
 GameObject:
   m_ObjectHideFlags: 0

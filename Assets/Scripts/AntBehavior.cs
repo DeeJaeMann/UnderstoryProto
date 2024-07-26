@@ -15,4 +15,20 @@ public class AntBehavior : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "Player")
+        {
+            Debug.Log("Ant detected player");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.name == "Player")
+        {
+            Debug.Log("Ant lost player");
+        }
+    }
 }

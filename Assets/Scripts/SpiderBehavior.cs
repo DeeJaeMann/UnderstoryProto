@@ -22,5 +22,19 @@ public class SpiderBehavior : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "Player")
+        {
+            Debug.Log("Spider detected player");
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.name == "Player")
+        {
+            Debug.Log("Spider lost player");
+        }
+    }
 }

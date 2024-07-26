@@ -15,4 +15,20 @@ public class FrogBehavior : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "Player")
+        {
+            Debug.Log("Frog detected player");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.name == "Player")
+        {
+            Debug.Log("Frog lost player");
+        }
+    }
 }
