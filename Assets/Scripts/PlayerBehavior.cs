@@ -17,6 +17,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private Dictionary<string, int> _enemyDict = new()
     {
+        {"Water", 100 },
         {"Ant", 1},
         {"Spider", 5 },
         {"Frog", 100 },

@@ -16,12 +16,5 @@ public class WaterBehavior : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.name == "Player")
-        {
-            Debug.Log("Player can't swim!");
-            Destroy(other.gameObject);
-        }
-    }
+
 }

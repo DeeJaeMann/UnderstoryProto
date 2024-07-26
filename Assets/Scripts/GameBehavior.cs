@@ -17,6 +17,7 @@ public class GameBehavior : MonoBehaviour
 
     public bool isHome = false;
     public Button winButton;
+    public Button lossButton;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +68,13 @@ public class GameBehavior : MonoBehaviour
             _playerHP = value;
             Debug.Log($"PlayerHP: {_playerHP}");
             healthText.text = $"Health: {PlayerHP}";
+
+            if(_playerHP <= 0)
+            {
+                progressText.text = "Oh no!";
+                lossButton.gameObject.SetActive(true);
+                Time.timeScale = 0f;
+            }
         }
     }
 
