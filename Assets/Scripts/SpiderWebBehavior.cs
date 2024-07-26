@@ -7,10 +7,14 @@ public class SpiderWebBehavior : MonoBehaviour
 {
     public float slowModifier = .5f;
     private PlayerBehavior player;
+    private GameBehavior gameManager;
     private float playerBaseSpeed;
+    private string previousMessage;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
+        previousMessage = gameManager.progressText.text;
         player = GameObject.Find("Player").GetComponent<PlayerBehavior>();
         playerBaseSpeed = player.speed;
     }
@@ -19,7 +23,12 @@ public class SpiderWebBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (player.speed == playerBaseSpeed) player.speed *= slowModifier;
+            if (player.speed == playerBaseSpeed)
+            {
+                player.speed *= slowModifier;
+                gameManager.progressText.text = "Why is this ground so sticky?";
+                gameManager.progressText.fontSize = 30;
+            }
             //Debug.Log($"Player Speed is now {player.speed}");
             // Spawn Spider and set status to follow player
         }
@@ -30,6 +39,8 @@ public class SpiderWebBehavior : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             player.speed = playerBaseSpeed;
+            gameManager.progressText.text = previousMessage;
+            gameManager.progressText.fontSize = 36;
             //Debug.Log($"Player speed reset to {player.speed}");
             // Set Spider status to return
         }
