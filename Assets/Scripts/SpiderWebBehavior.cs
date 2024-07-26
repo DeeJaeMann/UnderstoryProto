@@ -10,6 +10,7 @@ public class SpiderWebBehavior : MonoBehaviour
     private GameBehavior gameManager;
     private float playerBaseSpeed;
     private string previousMessage;
+    private Rigidbody _rigidBody;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,8 @@ public class SpiderWebBehavior : MonoBehaviour
         previousMessage = gameManager.progressText.text;
         player = GameObject.Find("Player").GetComponent<PlayerBehavior>();
         playerBaseSpeed = player.speed;
+        _rigidBody = GetComponent<Rigidbody>();
+        _rigidBody.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     private void OnCollisionEnter(Collision collision)
