@@ -52,5 +52,12 @@ public class SpiderWebBehavior : MonoBehaviour
             //Debug.Log($"Player speed reset to {player.speed}");
             // Set Spider status to return
         }
+        if (collision.gameObject.tag == "Spider")
+        {
+            Debug.Log("Spider left web");
+            SpiderBehavior spider;
+            spider = collision.gameObject.GetComponent<SpiderBehavior>();
+            spider.currentState = SpiderBehavior.EnemyStates.OffWeb;
+        }
     }
 }

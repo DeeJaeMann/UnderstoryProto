@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class SpiderBehavior : MonoBehaviour
 {
-    public enum enemyStates { Return, Follow, Attack };
-    public enemyStates currentState;
+    public enum EnemyStates { Return, Follow, Attack, OffWeb };
+    public EnemyStates currentState;
     public float detectionRadius = 10f;
     public float speed = 0.5f;
     private Transform _player;
@@ -18,7 +18,7 @@ public class SpiderBehavior : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _player = GameObject.Find("Player").GetComponent<Transform>();
         _spawnPoint = GameObject.Find("SpawnPoint").GetComponent<Transform>();
-        currentState = enemyStates.Return;
+        currentState = EnemyStates.Return;
         Debug.Log($"Spawn point is {_spawnPoint.position}");
         MoveToSpawnPoint();
     }
@@ -26,11 +26,11 @@ public class SpiderBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (currentState == enemyStates.Return)
+        if (currentState == EnemyStates.Return)
         {
             MoveToSpawnPoint();
         }
-        else if (currentState == enemyStates.Follow)
+        else if (currentState == EnemyStates.Follow)
         {
             MoveToPlayer();
         }
@@ -39,10 +39,10 @@ public class SpiderBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Player")
+        if(other.name == "Player" && currentState != EnemyStates.OffWeb)
         {
             Debug.Log("Spider detected player");
-            currentState = enemyStates.Follow;
+            currentState = EnemyStates.Follow;
         }
     }
 
@@ -51,7 +51,7 @@ public class SpiderBehavior : MonoBehaviour
         if(other.name == "Player")
         {
             Debug.Log("Spider lost player");
-            currentState = enemyStates.Return;
+            currentState = EnemyStates.Return;
         }
     }
 
