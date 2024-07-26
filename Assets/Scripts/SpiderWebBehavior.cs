@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpiderWebBehavior : MonoBehaviour
 {
-    public float slowModifier = .2f;
+    public float slowModifier = .5f;
     private PlayerBehavior player;
     private float playerBaseSpeed;
     // Start is called before the first frame update
@@ -21,6 +21,7 @@ public class SpiderWebBehavior : MonoBehaviour
         {
             if (player.speed == playerBaseSpeed) player.speed *= slowModifier;
             //Debug.Log($"Player Speed is now {player.speed}");
+            // Spawn Spider and set status to follow player
         }
     }
 
@@ -30,6 +31,7 @@ public class SpiderWebBehavior : MonoBehaviour
         {
             player.speed = playerBaseSpeed;
             //Debug.Log($"Player speed reset to {player.speed}");
+            // Set Spider status to return
         }
     }
 }
