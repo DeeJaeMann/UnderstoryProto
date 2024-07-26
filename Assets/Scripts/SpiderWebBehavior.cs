@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpiderWebBehavior : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class SpiderWebBehavior : MonoBehaviour
     private float playerBaseSpeed;
     private string previousMessage;
     private Rigidbody _rigidBody;
+    private NavMeshAgent _agent;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,9 @@ public class SpiderWebBehavior : MonoBehaviour
         playerBaseSpeed = player.speed;
         _rigidBody = GetComponent<Rigidbody>();
         _rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updatePosition = false;
     }
 
     private void OnCollisionEnter(Collision collision)
