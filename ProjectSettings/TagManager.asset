@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - Spider
+  - Ant
   layers:
   - Default
   - TransparentFX

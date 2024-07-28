@@ -4183,6 +4183,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &892198427 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6471967734106251385, guid: 0d083f7300da51e4eb9a2b64a67b7782, type: 3}
+  m_PrefabInstance: {fileID: 4812005879167523693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &923732550
 Mesh:
   m_ObjectHideFlags: 0
@@ -4377,7 +4382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ddbd97245a6ca459cef8a2cd3c3c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFood: 1
+  maxFood: 3
   healthText: {fileID: 1339856308}
   foodText: {fileID: 606341956}
   progressText: {fileID: 263681692}
@@ -7194,13 +7199,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1994601295}
     m_Modifications:
+    - target: {fileID: 2453669967113975900, guid: ae4a329be9715564a96a1603a445401c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 892198427}
     - target: {fileID: 6667800985068379607, guid: ae4a329be9715564a96a1603a445401c, type: 3}
       propertyPath: m_Name
       value: Ant
       objectReference: {fileID: 0}
     - target: {fileID: 7009413024007365678, guid: ae4a329be9715564a96a1603a445401c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.804058
+      value: 26.32
       objectReference: {fileID: 0}
     - target: {fileID: 7009413024007365678, guid: ae4a329be9715564a96a1603a445401c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7208,7 +7217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7009413024007365678, guid: ae4a329be9715564a96a1603a445401c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.36
+      value: 5.74
       objectReference: {fileID: 0}
     - target: {fileID: 7009413024007365678, guid: ae4a329be9715564a96a1603a445401c, type: 3}
       propertyPath: m_LocalRotation.w
