@@ -17,10 +17,10 @@ public class PlayerBehavior : MonoBehaviour
 
     private Dictionary<string, int> _enemyDict = new()
     {
-        {"Water", 100 },
+        {"Water", 10 },
         {"Ant", 1},
         {"Spider", 5 },
-        {"Frog", 100 },
+        {"Frog", 10 },
     };
 
     // Start is called before the first frame update

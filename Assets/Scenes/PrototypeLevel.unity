@@ -3786,19 +3786,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4858888852343730853, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4858888852343730853, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4858888852343730853, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4858888852343730853, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4858888852343730853, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3806,14 +3806,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4858888852343730853, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4858888852343730853, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5495431301118406934, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899357709349139049, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 892198427}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5847634494559382335, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 672fdda8749b1784199feac5e941ca3d, type: 3}
@@ -4387,8 +4396,8 @@ MonoBehaviour:
   foodText: {fileID: 606341956}
   progressText: {fileID: 263681692}
   isHome: 0
-  winButton: {fileID: 800830570}
-  lossButton: {fileID: 0}
+  winButton: {fileID: 800830568}
+  lossButton: {fileID: 955593703}
 --- !u!4 &939767664
 Transform:
   m_ObjectHideFlags: 0
