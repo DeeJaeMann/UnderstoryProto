@@ -26,11 +26,11 @@ public class AntBehavior : MonoBehaviour
     {
         // Check the distance between the ant and the player
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
         // If the player is within detection range, start following
         if (distanceToPlayer <= detectionRange)
         {
             isFollowing = true;
+            transform.LookAt(player.position);
         }
         else
         {
