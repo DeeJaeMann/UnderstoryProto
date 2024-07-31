@@ -9,6 +9,7 @@ public class SpiderWebBehavior : MonoBehaviour
     public float slowModifier = .5f;
     private PlayerBehavior player;
     private GameBehavior gameManager;
+    private SpiderBehavior spiderBehavior;
     private float playerBaseSpeed;
     private string previousMessage;
     private Rigidbody _rigidBody;
@@ -19,6 +20,7 @@ public class SpiderWebBehavior : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
         previousMessage = gameManager.progressText.text;
         player = GameObject.Find("Player").GetComponent<PlayerBehavior>();
+        spiderBehavior = GameObject.Find("Spider").GetComponent<SpiderBehavior>();
         playerBaseSpeed = player.speed;
         _rigidBody = GetComponent<Rigidbody>();
         _rigidBody.constraints = RigidbodyConstraints.FreezeAll;
@@ -31,6 +33,10 @@ public class SpiderWebBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if(spiderBehavior != null)
+            {
+                spiderBehavior.EnterFollowState();
+            }
             if (player.speed == playerBaseSpeed)
             {
                 player.speed *= slowModifier;
@@ -46,18 +52,21 @@ public class SpiderWebBehavior : MonoBehaviour
     { 
         if (collision.gameObject.tag == "Player")
         {
+            if (spiderBehavior != null)
+            {
+                spiderBehavior.ReturnToSpawn();
+            }
             player.speed = playerBaseSpeed;
             gameManager.progressText.text = previousMessage;
             gameManager.progressText.fontSize = 36;
             //Debug.Log($"Player speed reset to {player.speed}");
             // Set Spider status to return
         }
-        if (collision.gameObject.tag == "Spider")
-        {
-            Debug.Log("Spider left web");
-            SpiderBehavior spider;
-            spider = collision.gameObject.GetComponent<SpiderBehavior>();
-            spider.currentState = SpiderBehavior.EnemyStates.OffWeb;
-        }
+        //if (collision.gameObject.tag == "Spider")
+        //{
+        //    Debug.Log("Spider left web");
+        //    SpiderBehavior spider;
+        //    spider = collision.gameObject.GetComponent<SpiderBehavior>();
+        //}
     }
 }
