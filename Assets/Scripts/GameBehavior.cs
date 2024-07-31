@@ -16,8 +16,8 @@ public class GameBehavior : MonoBehaviour
     public TMP_Text progressText;
 
     public bool isHome = false;
-    public Button winButton;
-    public Button lossButton;
+    public GameObject winButton;
+    public GameObject lossButton;
 
     // Start is called before the first frame update
     void Start()
@@ -29,16 +29,17 @@ public class GameBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (CheckWin())
+        {
+            winButton.SetActive(true);
+            Time.timeScale = 0f;
+        }
         
     }
 
     private void LateUpdate()
     {
-        if(CheckWin())
-        {
-            winButton.gameObject.SetActive(true);
-            Time.timeScale = 0f;
-        }
+        
     }
     public int Food
     {
@@ -68,13 +69,14 @@ public class GameBehavior : MonoBehaviour
             _playerHP = value;
             Debug.Log($"PlayerHP: {_playerHP}");
             healthText.text = $"Health: {PlayerHP}";
-
-            if(_playerHP <= 0)
+            
+            if (_playerHP < 1)
             {
+                lossButton.SetActive(true);
                 progressText.text = "Oh no!";
-                lossButton.gameObject.SetActive(true);
                 Time.timeScale = 0f;
             }
+
         }
     }
 
